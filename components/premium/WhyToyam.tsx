@@ -21,7 +21,7 @@ export function WhyToyam() {
       icon: <Factory size={24} className="text-white" />,
     },
     {
-      title: "Fast Delivery",
+      title: "Delivery Within 7-10 Days",
       description: "Reliable logistics ensuring your venue is never out of stock.",
       icon: <FastForward size={24} className="text-white" />,
     },

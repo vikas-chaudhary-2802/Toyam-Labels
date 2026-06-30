@@ -34,7 +34,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden bg-transparent"
+      className="relative min-h-screen flex items-center justify-center pt-28 md:pt-32 pb-12 overflow-hidden bg-transparent"
     >
       {/* Background Gradients */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] pointer-events-none" />
@@ -59,7 +59,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-            className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tighter text-white mb-6"
+            className="text-[2.5rem] leading-tight md:text-6xl lg:text-7xl font-semibold tracking-tighter text-white mb-6"
           >
             Your Brand. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Every Sip.</span>
           </motion.h1>
@@ -82,100 +82,103 @@ export function HeroSection() {
           className="flex flex-col md:flex-row w-full max-w-6xl mx-auto flex-1 min-h-[400px] md:min-h-[500px] gap-4 relative"
         >
           {/* HORECA Side (Left) */}
-          <Link href="/horeca" className="contents">
-            <motion.div
-              onMouseEnter={() => setHoveredSide("left")}
-              onMouseLeave={() => setHoveredSide(null)}
-              animate={{ 
-                flex: hoveredSide === "left" ? 1.5 : hoveredSide === "right" ? 0.75 : 1,
-                opacity: hoveredSide === "right" ? 0.6 : 1
-              }}
-              transition={{ type: "spring", stiffness: 200, damping: 25 }}
-              className="relative w-full h-full min-h-[250px] md:min-h-[300px] rounded-[2rem] overflow-hidden group cursor-pointer border border-white/10 shadow-2xl flex-1"
-            >
-              {/* Background Video */}
-              <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover object-[50%_30%] transition-transform duration-1000 group-hover:scale-105"
-                src="/VID-20250109-WA0006.mp4"
-              />
-              {/* Overlays */}
-              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+          <motion.div
+            onMouseEnter={() => setHoveredSide("left")}
+            onMouseLeave={() => setHoveredSide(null)}
+            onClick={() => setHoveredSide(hoveredSide === "left" ? null : "left")}
+            whileTap={{ scale: 0.98 }}
+            animate={{ 
+              flex: hoveredSide === "left" ? 1.5 : hoveredSide === "right" ? 0.75 : 1,
+              opacity: hoveredSide === "right" ? 0.6 : 1
+            }}
+            transition={{ type: "spring", stiffness: 200, damping: 25 }}
+            className="relative w-full h-full min-h-[250px] md:min-h-[300px] rounded-[2rem] overflow-hidden group border border-white/10 shadow-2xl flex-1"
+          >
+            {/* Background Video */}
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105 bg-black"
+              src="/VID-20250109-WA0006.mp4"
+            />
+            {/* Overlays */}
+            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
 
-              {/* Content */}
-              <div className="absolute inset-0 p-6 md:p-12 flex flex-col justify-end z-20">
-                <div className="mb-4 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                  <span className="px-3 md:px-4 py-1.5 md:py-2 bg-blue-600/90 backdrop-blur text-white text-xs md:text-sm font-bold rounded-full">
-                    PRIMARY MODEL
-                  </span>
-                </div>
-                <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-2 group-hover:text-blue-200 transition-colors">
-                  HORECA
-                </h3>
-                <p className="text-gray-300 text-lg md:text-xl font-light mb-6 line-clamp-2">
-                  Premium private-label branding for Hotels, Restaurants & Cafés.
-                </p>
-                
-                <div className="flex items-center space-x-2 text-white font-medium transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-150">
-                  <span>Explore the HORECA Model</span>
-                  <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </div>
+            {/* Content */}
+            <div className="absolute inset-0 p-6 md:p-12 flex flex-col justify-end z-20">
+              <div className="mb-4 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                <span className="px-3 md:px-4 py-1.5 md:py-2 bg-blue-600/90 backdrop-blur text-white text-xs md:text-sm font-bold rounded-full">
+                  PRIMARY MODEL
+                </span>
               </div>
-            </motion.div>
-          </Link>
+              <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-2 group-hover:text-blue-200 transition-colors">
+                HORECA
+              </h3>
+              <p className="text-gray-300 text-lg md:text-xl font-light mb-6 line-clamp-2">
+                Premium private-label branding for Hotels, Restaurants & Cafés.
+              </p>
+              
+              <div className="flex items-center space-x-2 text-white font-medium transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-150">
+                <span>Explore the HORECA Model</span>
+                <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </div>
+            </div>
+          </motion.div>
 
           {/* Ad-Tech Side (Right) */}
-          <Link href="/brand-distribution" className="contents">
-            <motion.div
-              onMouseEnter={() => setHoveredSide("right")}
-              onMouseLeave={() => setHoveredSide(null)}
-              animate={{ 
-                flex: hoveredSide === "right" ? 1.5 : hoveredSide === "left" ? 0.75 : 1,
-                opacity: hoveredSide === "left" ? 0.6 : 1
+          <motion.div
+            onMouseEnter={() => setHoveredSide("right")}
+            onMouseLeave={() => setHoveredSide(null)}
+            onClick={() => setHoveredSide(hoveredSide === "right" ? null : "right")}
+            whileTap={{ scale: 0.98 }}
+            animate={{ 
+              flex: hoveredSide === "right" ? 1.5 : hoveredSide === "left" ? 0.75 : 1,
+              opacity: hoveredSide === "left" ? 0.6 : 1
+            }}
+            transition={{ type: "spring", stiffness: 200, damping: 25 }}
+            className="relative w-full h-full min-h-[250px] md:min-h-[300px] rounded-[2rem] overflow-hidden group border border-white/10 shadow-2xl flex-1"
+          >
+            {/* Background Video */}
+            <video 
+              autoPlay 
+              muted 
+              playsInline
+              onTimeUpdate={(e) => {
+                const video = e.currentTarget;
+                if (video.duration && video.currentTime >= video.duration - 4) {
+                  video.currentTime = 4;
+                }
               }}
-              transition={{ type: "spring", stiffness: 200, damping: 25 }}
-              className="relative w-full h-full min-h-[250px] md:min-h-[300px] rounded-[2rem] overflow-hidden group cursor-pointer border border-white/10 shadow-2xl flex-1"
-            >
-              {/* Background Video */}
-              <video 
-                ref={rightVideoRef}
-                autoPlay 
-                muted 
-                playsInline
-                onTimeUpdate={handleRightVideoTimeUpdate}
-                onLoadedMetadata={handleRightVideoLoadedMetadata}
-                className="absolute inset-0 w-full h-full object-cover object-[50%_30%] transition-transform duration-1000 group-hover:scale-105"
-                src="/1731848805519146.mp4"
-              />
-              {/* Overlays */}
-              <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-all duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+              className="absolute inset-0 w-full h-full object-cover object-[50%_30%] transition-transform duration-1000 group-hover:scale-105 bg-black"
+              src="/1731848805519146.mp4#t=4"
+            />
+            {/* Overlays */}
+            <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-all duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
 
-              {/* Content */}
-              <div className="absolute inset-0 p-6 md:p-12 flex flex-col justify-end items-end text-right z-20">
-                <div className="mb-4 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                  <span className="px-3 md:px-4 py-1.5 md:py-2 bg-purple-600/90 backdrop-blur text-white text-xs md:text-sm font-bold rounded-full">
-                    AD-TECH
-                  </span>
-                </div>
-                <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-2 group-hover:text-purple-200 transition-colors">
-                  Distribution
-                </h3>
-                <p className="text-gray-300 text-lg md:text-xl font-light mb-6 line-clamp-2">
-                  High-footfall offline ad campaigns via water bottles.
-                </p>
-
-                <div className="flex items-center space-x-2 text-white font-medium transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-150">
-                  <span>View Ad-Tech Campaigns</span>
-                  <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </div>
+            {/* Content */}
+            <div className="absolute inset-0 p-6 md:p-12 flex flex-col justify-end items-end text-right z-20">
+              <div className="mb-4 transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                <span className="px-3 md:px-4 py-1.5 md:py-2 bg-purple-600/90 backdrop-blur text-white text-xs md:text-sm font-bold rounded-full">
+                  AD-TECH
+                </span>
               </div>
-            </motion.div>
-          </Link>
+              <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-2 group-hover:text-purple-200 transition-colors">
+                Distribution
+              </h3>
+              <p className="text-gray-300 text-lg md:text-xl font-light mb-6 line-clamp-2">
+                High-footfall offline ad campaigns via water bottles.
+              </p>
+
+              <div className="flex items-center space-x-2 text-white font-medium transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-150">
+                <span>View Ad-Tech Campaigns</span>
+                <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

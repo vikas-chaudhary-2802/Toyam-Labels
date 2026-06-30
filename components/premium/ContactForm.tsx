@@ -8,19 +8,47 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
+
+    const formData = new FormData(e.currentTarget);
+    formData.append("access_key", "38ac5693-59a8-4c11-80ec-22a00b12f5d4");
+    formData.append("subject", "New Lead from Toyam Labels Website");
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: json,
+      });
+
+      const data = await response.json();
+
+      if (response.status === 200) {
+        setIsSuccess(true);
+        e.currentTarget.reset();
+        setTimeout(() => setIsSuccess(false), 5000);
+      } else {
+        console.error("Form submission failed:", data);
+        alert(data.message || "Something went wrong. Please try again.");
+      }
+    } catch (error: any) {
+      console.error("Form submission error:", error);
+      alert(`Network Error: ${error.message || "Please check your connection and try again."}`);
+    } finally {
       setIsSubmitting(false);
-      setIsSuccess(true);
-      setTimeout(() => setIsSuccess(false), 5000);
-    }, 1500);
+    }
   };
 
   return (
-    <section id="contact" className="py-32 bg-transparent relative">
+    <section id="contact" className="py-20 md:py-32 bg-transparent relative">
       {/* Abstract Background */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[150px] pointer-events-none" />
       
@@ -91,6 +119,7 @@ export function ContactForm() {
                   <label className="text-sm font-medium text-gray-400 ml-1">Business Name</label>
                   <input
                     type="text"
+                    name="business_name"
                     required
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all"
                     placeholder="Acme Corp"
@@ -99,6 +128,7 @@ export function ContactForm() {
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-400 ml-1">Category</label>
                   <select
+                    name="category"
                     required
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all appearance-none"
                   >
@@ -115,6 +145,7 @@ export function ContactForm() {
                   <label className="text-sm font-medium text-gray-400 ml-1">Location / City</label>
                   <input
                     type="text"
+                    name="location"
                     required
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all"
                     placeholder="Delhi NCR"
@@ -124,6 +155,7 @@ export function ContactForm() {
                   <label className="text-sm font-medium text-gray-400 ml-1">Phone Number</label>
                   <input
                     type="tel"
+                    name="phone"
                     required
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all"
                     placeholder="+91 99999 99999"
@@ -134,6 +166,7 @@ export function ContactForm() {
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-400 ml-1">Monthly Bottle Requirement</label>
                 <select
+                  name="volume"
                   required
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all appearance-none"
                 >

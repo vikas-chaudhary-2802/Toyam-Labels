@@ -45,7 +45,7 @@ export function BusinessModels() {
   ];
 
   return (
-    <section id="models" className="py-32 bg-transparent relative">
+    <section id="models" className="py-20 md:py-32 bg-transparent relative">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <motion.h2
@@ -80,7 +80,7 @@ export function BusinessModels() {
             >
               {/* Background Glow */}
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${model.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700`}
+                className={`absolute inset-0 bg-gradient-to-br ${model.gradient} opacity-30 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700`}
               />
 
               {model.primary && (

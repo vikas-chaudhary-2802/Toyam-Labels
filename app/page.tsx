@@ -6,6 +6,7 @@ import { UseCases } from "@/components/premium/UseCases";
 import { WhyToyam } from "@/components/premium/WhyToyam";
 import { SocialProof } from "@/components/premium/SocialProof";
 import { ContactForm } from "@/components/premium/ContactForm";
+import { Pricing } from "@/components/premium/Pricing";
 
 export default function FreeToyamPremium() {
   return (
@@ -17,6 +18,7 @@ export default function FreeToyamPremium() {
       <UseCases />
       <WhyToyam />
       <SocialProof />
+      <Pricing />
       <ContactForm />
     </>
   );

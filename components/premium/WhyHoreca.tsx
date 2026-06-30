@@ -17,7 +17,7 @@ export function WhyHoreca() {
   ];
 
   return (
-    <section id="why-horeca" className="py-32 bg-zinc-950 relative overflow-hidden">
+    <section id="why-horeca" className="py-20 md:py-32 bg-zinc-950 relative overflow-hidden">
       <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       
       <div className="container mx-auto px-6 relative z-10">
@@ -49,7 +49,7 @@ export function WhyHoreca() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex-1 w-full p-8 md:p-12 rounded-3xl border border-red-500/20 bg-red-500/5 backdrop-blur-sm"
+            className="flex-1 w-full p-6 md:p-12 rounded-3xl border border-red-500/20 bg-red-500/5 backdrop-blur-sm"
           >
             <div className="flex items-center space-x-4 mb-8">
               <div className="w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center border border-red-500/20">
@@ -82,7 +82,7 @@ export function WhyHoreca() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex-1 w-full p-8 md:p-12 rounded-3xl border border-blue-500/30 bg-blue-500/10 backdrop-blur-sm relative overflow-hidden"
+            className="flex-1 w-full p-6 md:p-12 rounded-3xl border border-blue-500/30 bg-blue-500/10 backdrop-blur-sm relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[80px]" />
             

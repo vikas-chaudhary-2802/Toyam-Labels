@@ -55,7 +55,7 @@ export function HowItWorks() {
   };
 
   return (
-    <section id="process" className="py-32 bg-transparent relative">
+    <section id="process" className="py-20 md:py-32 bg-transparent relative">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <motion.h2
@@ -78,26 +78,26 @@ export function HowItWorks() {
           </motion.p>
 
           {/* Toggle */}
-          <div className="inline-flex bg-white/5 border border-white/10 rounded-full p-1.5 backdrop-blur-md">
+          <div className="flex bg-white/5 border border-white/10 rounded-full p-1.5 backdrop-blur-md max-w-md mx-auto relative w-full sm:w-auto overflow-hidden">
             <button
               onClick={() => setActiveTab("horeca")}
-              className={`px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`flex-1 px-2 sm:px-8 py-3 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                 activeTab === "horeca"
                   ? "bg-blue-600 text-white shadow-lg"
                   : "text-gray-400 hover:text-white"
               }`}
             >
-              HORECA Private Label
+              HORECA Model
             </button>
             <button
               onClick={() => setActiveTab("adtech")}
-              className={`px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`flex-1 px-2 sm:px-8 py-3 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                 activeTab === "adtech"
                   ? "bg-purple-600 text-white shadow-lg"
                   : "text-gray-400 hover:text-white"
               }`}
             >
-              Brand Distribution
+              Brand Ad-Tech
             </button>
           </div>
         </div>
