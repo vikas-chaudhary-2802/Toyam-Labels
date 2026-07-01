@@ -53,6 +53,7 @@ export function Navbar() {
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/final_logo-01-removebg-preview-eQElW5BeA3cTGW2oNzg0pFV2Sm15IY.png"
                 alt="Toyam Labels"
                 fill
+                priority
                 className="object-contain transition-transform duration-500 group-hover:scale-110"
               />
             </div>

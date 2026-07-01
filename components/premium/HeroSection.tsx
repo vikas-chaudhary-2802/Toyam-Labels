@@ -100,6 +100,8 @@ export function HeroSection() {
               loop 
               muted 
               playsInline
+              preload="none"
+              poster="/heroimgsection.jpg"
               className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105 bg-black"
               src="/VID-20250109-WA0006.mp4"
             />
@@ -146,6 +148,8 @@ export function HeroSection() {
               autoPlay 
               muted 
               playsInline
+              preload="none"
+              poster="/HeroSection-img.png"
               onTimeUpdate={(e) => {
                 const video = e.currentTarget;
                 if (video.duration && video.currentTime >= video.duration - 4) {
