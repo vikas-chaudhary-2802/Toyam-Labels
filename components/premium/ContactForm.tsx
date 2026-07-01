@@ -11,8 +11,9 @@ export function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    const form = e.currentTarget;
 
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData(form);
     formData.append("access_key", "38ac5693-59a8-4c11-80ec-22a00b12f5d4");
     formData.append("subject", "New Lead from Toyam Labels Website");
 
@@ -33,7 +34,7 @@ export function ContactForm() {
 
       if (response.status === 200) {
         setIsSuccess(true);
-        e.currentTarget.reset();
+        form.reset();
         setTimeout(() => setIsSuccess(false), 5000);
       } else {
         console.error("Form submission failed:", data);
