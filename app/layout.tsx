@@ -4,8 +4,8 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'FreeToyam | Your Brand. Every Sip.',
-  description: 'Transform your water bottles into powerful branding assets — for hospitality and high-footfall distribution.',
+  title: 'Toyam Labels | Your Brand. Every Sip.',
+  description: 'Premium custom-labelled water designed to elevate your customer experience.',
 }
 
 import { Navbar } from '@/components/premium/Navbar';
